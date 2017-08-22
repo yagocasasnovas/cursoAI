@@ -1,0 +1,64 @@
+import sys
+import math
+import timeit
+import resource
+import heapq
+
+def CheckDimensionOfBoard(state_temp):
+
+
+	length = len(state_temp.replace(',',''))
+
+	return math.sqrt(length)
+
+def ManhattanDistance(state,goalstate,dimension):
+	manhattan_distance = 0
+	dimension = int(dimension)
+	index_state = 0
+	for a in state:
+		index_goal = 0
+		for b in goalstate:
+			if a == b and b != '0':
+				
+				manhattan_distance = manhattan_distance + abs((index_goal % dimension) - (index_state % dimension)) + abs(int(index_goal/dimension) - int(index_state/dimension))
+
+			index_goal = index_goal +1
+		index_state = index_state +1
+		
+
+	return manhattan_distance
+	
+def DefineGoalState(dimension):
+ 
+	dimension = int(dimension)*int(dimension)
+	g = [str(x).zfill(1) for x in range(dimension)]
+	h = tuple(g)
+
+	"""h = ('8', '4', '6', '2', '3', '1', '0', '5', '7')"""
+	return h
+	
+start = timeit.default_timer()
+ 
+
+ 
+StartState = sys.argv[1]
+
+board_dimension = CheckDimensionOfBoard(StartState) 
+ 
+StartState = StartState.split(',')
+ 
+StartState = tuple(StartState)
+ 
+StartStateNode = ('',StartState)
+
+
+
+GoalState = DefineGoalState(board_dimension)
+
+
+
+print ManhattanDistance(StartState,GoalState,board_dimension)
+
+
+
+

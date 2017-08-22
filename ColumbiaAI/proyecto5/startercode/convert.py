@@ -1,0 +1,80 @@
+"convert"
+
+import csv
+import pandas as pd
+
+
+
+"stop words to array"
+fp_stop = open("stopwords.en.txt","r")
+
+content = fp_stop.readlines()
+stopwords = []
+for c in content:
+	c = ''.join(c.splitlines())
+	stopwords.append(c)
+	
+fp_stop.close()
+"create main array of declarations"
+
+main_array = []
+
+j = 0
+
+with open("imdb_tr.csv","r") as fp:
+	reader = csv.reader(fp)
+	for row in reader:
+		vector_words = []
+		main_array.append([row[1].split() , row[2]])
+		j = j + 1
+
+fp.close()
+number_of_samples = j
+
+list_of_words = {}
+
+unique_words = set()
+
+"create list of words indexed"
+
+i = 0
+for row in main_array:
+
+	for word in row[0]:
+		if word not in stopwords:
+			if word not in unique_words:
+				list_of_words[word] = i
+				unique_words.add(word)
+		
+				i = i + 1
+
+number_of_words = i
+
+print len(unique_words)
+
+		
+"create array for SGD"
+
+sgd_array_x = []
+sgd_array_y = []
+
+
+for row in main_array:
+	
+	"array X"
+	temp_x_array = [False]*number_of_words
+	
+	
+	for word in row[0]:
+		
+		if word in unique_words:
+			temp_x_array[list_of_words[word]] = True
+		
+	sgd_array_x.append(temp_x_array)
+		
+		
+print len(sgd_array_x)
+		
+		
+		
+		

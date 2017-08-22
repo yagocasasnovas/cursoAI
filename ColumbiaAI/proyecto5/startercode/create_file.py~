@@ -1,0 +1,53 @@
+import os
+
+file = open("imdb_tr.csv","w")
+
+i = 0
+path = '../train/pos'
+for filename in os.listdir(path):
+ fp=open(path+'/'+filename,'r')
+ frase = fp.read()
+ frase = frase.replace('"', "")
+ frase = frase.replace("<br", "")
+ frase = frase.replace("/>", "")
+ frase = frase.replace("***", "")
+ frase = frase.replace("[", "")
+ frase = frase.replace("]", "")
+ frase = frase.replace(".", "")
+ frase = frase.replace(",", "")
+ frase = frase.replace(";", "")
+ frase = frase.replace(":", "")
+ frase = frase.replace("--", "")
+ frase = frase.replace("(", "")
+ frase = frase.replace(")", "")
+ frase = frase.replace("!", "")
+ frase = frase.replace("--", "")
+ file.write(str(i)+',"'+frase+'",1\n')
+ i = i + 1
+ fp.close()
+ 
+path = '../train/neg'
+for filename in os.listdir(path):
+ fp=open(path+'/'+filename,'r')
+ frase = fp.read()
+ frase = frase.replace('"', "")
+ frase = frase.replace("<br", "")
+ frase = frase.replace("/>", "")
+ frase = frase.replace("***", "")
+ frase = frase.replace("[", "")
+ frase = frase.replace("]", "")
+ frase = frase.replace(".", "")
+ frase = frase.replace(",", "")
+ frase = frase.replace(";", "")
+ frase = frase.replace(":", "")
+ frase = frase.replace("--", "")
+ frase = frase.replace("(", "")
+ frase = frase.replace(")", "")
+ frase = frase.replace("!", "")
+ file.write(str(i)+',"'+frase+'",0\n')
+ i = i + 1
+ fp.close()
+ 
+
+file.close()
+

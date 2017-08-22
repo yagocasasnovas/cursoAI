@@ -1,0 +1,297 @@
+
+from auxfunctions import exampleGrid2
+import math
+	
+heuristic_dict = {}
+
+def cleardict():
+	
+	global heuristic_dict
+	
+	heuristic_dict.clear
+
+	
+def heuristic(node):
+
+	global heuristic_dict
+	
+	nodetuple = (tuple(node.map[0]),tuple(node.map[1]),tuple(node.map[2]),tuple(node.map[3]))
+	
+
+	if nodetuple in heuristic_dict:
+		return heuristic_dict[nodetuple]
+	
+	
+	
+	else:
+		"""calcular heuristica nodo"""
+	
+		a = spread(node)
+		b = goal(node)
+		c = juntos_v3(node)
+		
+		"""print str(a) + ' ' + str(b) + ' ' + str(c)"""
+		"""heuristic_value = spread(node) + goal(node) + juntos_v2(node)"""
+		heuristic_value = a + b - c
+
+		
+		heuristic_dict[nodetuple] = heuristic_value
+
+	
+	
+		return heuristic_value
+
+	
+def complexity(node):
+	
+	loga = 0
+	
+	for row in range(4):
+		for column in range(4):
+			c = node.getCellValue([row,column])
+			if c != 0:
+				loga = loga + math.log(c,2)
+	
+	
+	
+	return loga
+
+
+def freeCells1(node):
+	
+	if node.getMaxTile() > 63:
+		return len(node.getAvailableCells())
+	else:
+		return 0
+
+def density(node):
+	
+	den = 0
+	
+	for row in range(4):
+		for column in range(4):
+			c = node.getCellValue([row,column])
+			
+			den = den + c * c
+	
+	
+	
+	return den
+
+def antidoses(node):
+	
+	if node.getMaxTile() > 63:
+		if node.getCellValue([0,0]) < 17 or node.getCellValue([0,1]) < 17 or node.getCellValue([1,0]) < 17 or node.getCellValue([0,2]) < 17:
+			return -100000
+		else:
+			return 0
+	else:
+		return 0
+	
+
+def juntos(node):
+	
+
+	if node.getCellValue([0,0]) == node.getCellValue([0,1]):
+		return node.getCellValue([0,0])
+	if node.getCellValue([0,0]) == node.getCellValue([1,0]):
+		return node.getCellValue([0,0])
+	if node.getCellValue([0,1]) == node.getCellValue([1,1]):
+		return node.getCellValue([0,1])		
+	if node.getCellValue([1,0]) == node.getCellValue([1,1]):
+		return node.getCellValue([1,0])
+		
+	if node.getCellValue([2,0]) == node.getCellValue([2,1]):
+		return node.getCellValue([2,0])
+	if node.getCellValue([1,1]) == node.getCellValue([2,1]):
+		return node.getCellValue([1,1])
+	if node.getCellValue([1,0]) == node.getCellValue([2,0]):
+		return node.getCellValue([1,0])
+		
+	if node.getCellValue([0,1]) == node.getCellValue([0,2]):
+		return node.getCellValue([0,1])
+	if node.getCellValue([1,1]) == node.getCellValue([1,2]):
+		return node.getCellValue([1,1])
+	if node.getCellValue([0,2]) == node.getCellValue([1,2]):
+		return node.getCellValue([0,2])
+
+	if node.getCellValue([2,0]) == node.getCellValue([3,0]):
+		return node.getCellValue([0,1])
+	if node.getCellValue([2,1]) == node.getCellValue([3,1]):
+		return node.getCellValue([0,1])
+	if node.getCellValue([3,0]) == node.getCellValue([3,1]):
+		return node.getCellValue([0,1])		
+		
+	if node.getCellValue([0,2]) == node.getCellValue([0,3]):
+		return node.getCellValue([1,1])
+	if node.getCellValue([1,2]) == node.getCellValue([1,3]):
+		return node.getCellValue([1,1])
+	if node.getCellValue([0,3]) == node.getCellValue([1,3]):
+		return node.getCellValue([1,1])		
+
+
+	return 0
+
+def juntos_v2(node):
+	
+
+	a = (-1)*abs(node.getCellValue([0,0]) - node.getCellValue([0,1]))
+	b = (-1)*abs(node.getCellValue([0,0]) - node.getCellValue([1,0]))
+	c = (-1)*abs(node.getCellValue([0,1]) - node.getCellValue([1,1]))
+	d = (-1)*abs(node.getCellValue([1,0]) - node.getCellValue([1,1]))
+	e = (-1)*abs(node.getCellValue([2,0]) - node.getCellValue([2,1]))
+	f = (-1)*abs(node.getCellValue([1,1]) - node.getCellValue([2,1]))
+	g = (-1)*abs(node.getCellValue([1,0]) - node.getCellValue([2,0]))
+	h = (-1)*abs(node.getCellValue([0,1]) - node.getCellValue([0,2]))
+
+	i = (-1)*abs(node.getCellValue([1,1]) - node.getCellValue([1,2]))
+	j = (-1)*abs(node.getCellValue([0,2]) - node.getCellValue([1,2]))
+	k = (-1)*abs(node.getCellValue([2,0]) - node.getCellValue([3,0]))
+
+	l = (-1)*abs(node.getCellValue([2,1]) - node.getCellValue([3,1]))
+
+	m = (-1)*abs(node.getCellValue([3,0]) - node.getCellValue([3,1]))
+		
+	n = (-1)*abs(node.getCellValue([0,2]) - node.getCellValue([0,3]))
+
+	o = (-1)*abs(node.getCellValue([1,2]) - node.getCellValue([1,3]))
+
+	p = (-1)*abs(node.getCellValue([0,3]) - node.getCellValue([1,3]))
+	q = (-1)*abs(node.getCellValue([2,1]) - node.getCellValue([2,2]))
+    
+	r = (-1)*abs(node.getCellValue([1,2]) - node.getCellValue([2,2]))
+    
+	s = (-1)*abs(node.getCellValue([3,1]) - node.getCellValue([3,2]))
+    
+	t = (-1)*abs(node.getCellValue([2,2]) - node.getCellValue([3,2]))
+    
+	u = (-1)*abs(node.getCellValue([2,2]) - node.getCellValue([2,3]))
+    
+	v = (-1)*abs(node.getCellValue([1,3]) - node.getCellValue([2,3]))
+    
+	w = (-1)*abs(node.getCellValue([3,2]) - node.getCellValue([3,3]))
+    
+	x = (-1)*abs(node.getCellValue([2,3]) - node.getCellValue([3,3]))
+    
+	ret = a*10 + b*10 + c*8 + d*8 + g*6 + h*8 + e*6 + f*6 + i*6 + j*6 + n*6 + k*6 + m*4 + + l*4 + q*4 + r*4 + o*4 + p*4 + s*2 + t*2 + u*2 + v*2 + w + x
+    
+	return ret
+   
+def juntos_v3(node):
+	
+
+	a = (node.getCellValue([0,0]) - node.getCellValue([0,1])) + (node.getCellValue([0,1]) - node.getCellValue([0,2])) + (node.getCellValue([0,2]) - node.getCellValue([0,3]))
+	b = (node.getCellValue([1,0]) - node.getCellValue([1,1])) + (node.getCellValue([1,1]) - node.getCellValue([1,2])) + (node.getCellValue([1,2]) - node.getCellValue([1,3]))
+	c = (node.getCellValue([2,0]) - node.getCellValue([2,1])) + (node.getCellValue([2,1]) - node.getCellValue([2,2])) + (node.getCellValue([2,2]) - node.getCellValue([2,3]))
+	d = (node.getCellValue([3,0]) - node.getCellValue([3,1])) + (node.getCellValue([3,1]) - node.getCellValue([3,2])) + (node.getCellValue([3,2]) - node.getCellValue([3,3]))
+	
+	ret = a + b + c + d
+    
+	return ret   
+   
+   
+def valuesInCorners(node):
+	a = 0
+	b = 0
+	c = 0
+	d = 0
+	
+	if not node.canInsert([0,0]):
+		a = 1
+	if not node.canInsert([0,3]):
+		b = 1
+	if not node.canInsert([3,0]):
+		c = 1
+	if not node.canInsert([3,3]):
+		d = 1
+
+	return a + b + c + d
+
+def maxValueCorners(node):
+
+	maxvalue = node.getMaxTile()
+	if maxvalue == node.getCellValue([0,0]) and maxvalue == node.getCellValue([0,1]):
+		return 1
+	if maxvalue == node.getCellValue([0,0]) and maxvalue == node.getCellValue([1,0]):
+		return 1
+	if maxvalue == node.getCellValue([0,3]) and maxvalue == node.getCellValue([1,3]):
+		return 1
+	if maxvalue == node.getCellValue([0,3]) and maxvalue == node.getCellValue([0,2]):
+		return 1
+	if maxvalue == node.getCellValue([3,0]) and maxvalue == node.getCellValue([3,1]):
+		return 1
+	if maxvalue == node.getCellValue([3,0]) and maxvalue == node.getCellValue([2,0]):
+		return 1
+		return 1
+	if maxvalue == node.getCellValue([3,3]) and maxvalue == node.getCellValue([3,2]):
+		return 1
+	if maxvalue == node.getCellValue([3,3]) and maxvalue == node.getCellValue([2,3]):
+		return 1
+
+
+
+
+	return 0
+
+
+	
+	
+def totalCount(node):
+	
+	total = 0
+	for column in range(4):
+		for row in range(4):
+			total = total + node.getCellValue([column,row])
+	
+	return total
+	
+def spread(node):
+
+	a1 = 13.575
+	b1 = 9.9799
+	c1 = 6.0654
+	d1 = 1.2549
+
+	a2 = 12.1925
+	b2 = 8.8840
+	c2 = 5.6257
+	d2 = 0.9924
+	
+	a3 = 10.2812
+	b3 = 7.6711
+	c3 = 3.7116
+	d3 = 0.5758
+		
+	a4 = 9.9937
+	b4 = 7.2414
+	c4 = 1.6188
+	d4 = 0.3351	
+
+	filaa = a1*node.getCellValue([0,0]) + a2*node.getCellValue([0,1]) + a3*node.getCellValue([0,2]) + a4*node.getCellValue([0,3])
+	filab = b1*node.getCellValue([1,0]) + b2*node.getCellValue([1,1]) + b3*node.getCellValue([1,2]) + b4*node.getCellValue([1,3])
+	filac = c1*node.getCellValue([2,0]) + c2*node.getCellValue([2,1]) + c3*node.getCellValue([2,2]) + c4*node.getCellValue([2,3])
+	filad = d1*node.getCellValue([3,0]) + d2*node.getCellValue([3,1]) + d3*node.getCellValue([3,2]) + d4*node.getCellValue([3,3])
+	
+	return filaa + filab + filac + filad
+	
+
+def killer(node):
+	
+	maxvalue = node.getMaxTile()
+	if maxvalue > 127:
+		if node.getCellValue([0,0]) < 5:
+			return -1
+		if node.getCellValue([0,1]) < 5:
+			return -1
+		if node.getCellValue([1,0]) < 5:
+			return -1
+		
+	return 0
+	
+def goal(node):
+	
+	maxvalue = node.getMaxTile()
+	if maxvalue == 2048 or maxvalue == 1024:
+		return 100000
+	
+	return 0

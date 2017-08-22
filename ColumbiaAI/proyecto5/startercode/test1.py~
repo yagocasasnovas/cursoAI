@@ -1,0 +1,121 @@
+import os
+import csv
+import pandas as pd
+import numpy as np
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.linear_model import SGDClassifier
+import string
+import re
+
+
+def clean(raw_html):
+	cleanr = re.compile('<.*?>')
+	cleantext = re.sub(cleanr, '', raw_html)
+	word = re.sub(r'([^\s\w]|_)+', '', cleantext)
+	word = word.lower()
+	word = re.sub("\d+", " ", word)
+	return word
+
+
+file = open("imdb_tr.csv","w")
+
+i = 0
+path = '../train/pos'
+for filename in os.listdir(path):
+ fp=open(path+'/'+filename,'r')
+ frase = fp.read()
+ frase = clean(frase)
+ file.write(str(i)+',"'+frase+'",1\n')
+ i = i + 1
+ fp.close()
+ 
+path = '../train/neg'
+for filename in os.listdir(path):
+ fp=open(path+'/'+filename,'r')
+ frase = fp.read()
+ frase = clean(frase)
+
+ file.write(str(i)+',"'+frase+'",0\n')
+ i = i + 1
+ fp.close()
+ 
+
+file.close()
+
+
+messages = pd.read_csv('imdb_tr.csv',sep=',',names=['message','labels'])
+
+
+
+def text_process(mess):
+
+
+
+	fp_stop = open("stopwords.en.txt","r")
+
+	content = fp_stop.readlines()
+	stopwords = []
+	for c in content:
+		c = ''.join(c.splitlines())
+		stopwords.append(c)
+	
+	fp_stop.close()
+
+	nopunc = [char for char in mess if char not in string.punctuation]
+
+	nopunc = ''.join(nopunc)
+
+	return [word for word in nopunc.split() if word.lower() not in stopwords]
+
+
+
+
+
+messages['message'].apply(text_process)
+
+print messages['labels'].head(5)
+
+bow_transformer = CountVectorizer()
+
+bow2 = bow_transformer.fit_transform(messages['message'])
+
+
+
+clf = SGDClassifier(loss="hinge", penalty="l1")
+
+
+a = clf.fit(bow2, messages['labels'])
+
+
+fileX = open("imdb_te1.csv","w")
+
+with open('imdb_te.csv', 'rU') as csvfile:
+	spamreader = csv.reader(csvfile, delimiter=' ', quotechar='"')
+	#for row in spamreader:
+		#print row
+		#row = clean(row)
+
+		#fileX.write(row+'\n')
+
+#clf.predict()
+
+
+test_messages = pd.read_csv('imdb_te.csv',sep=',',names=['test_message'])
+
+print test_messages.head()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

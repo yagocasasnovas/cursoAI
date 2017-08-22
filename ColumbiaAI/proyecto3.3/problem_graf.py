@@ -1,0 +1,120 @@
+import numpy as np
+import csv
+
+from numpy import array
+from matplotlib import pyplot
+
+import pylab
+from mpl_toolkits.mplot3d import Axes3D
+from sklearn.model_selection import StratifiedShuffleSplit
+from sklearn.model_selection import StratifiedKFold
+from sklearn import svm
+from sklearn.model_selection import cross_val_score
+
+
+Cs = [0.1, 0.5, 1.0, 5.0, 10.0, 50.0, 100.0]
+
+
+csv1 = np.genfromtxt ('input3.csv', delimiter=",")
+A = csv1[:,0]
+B = csv1[:,1]
+label = csv1[:,2]
+
+A = np.delete(A, (0), axis=0)
+B = np.delete(B, (0), axis=0)
+
+x_matrix = np.column_stack((A,B))
+
+
+label = np.delete(label, (0), axis=0)
+
+number_samples = len(A)
+
+number_samples_l = len(label)
+
+
+
+sss = StratifiedShuffleSplit(n_splits=10, test_size=0.4, random_state=0)
+result = sss.split(x_matrix,label)
+
+for train_index, test_index in result:
+	"""print("TRAIN:", train_index, "TEST:", test_index)."""
+	X_train, X_test = x_matrix[train_index], x_matrix[test_index]
+	y_train, y_test = label[train_index], label[test_index]
+
+
+for c in Cs:
+	clf = svm.SVC(C=c, kernel='linear')
+
+	print(max(cross_val_score(clf, X_train, y_train,cv=5)))
+
+
+skf = StratifiedKFold(n_splits=5)
+
+"""print(skf.get_n_splits(X_train, y_train))"""
+
+X_train_array = []
+X_val_array = []
+y_train_array = []
+y_val_array = []
+
+
+
+for train_index2, val_index in skf.split(X_train, y_train):
+	"print('TRAIN:', train_index2, 'VAL:', val_index)"
+	X_train2, X_val = X_train[train_index2], X_train[val_index]
+	y_train2, y_val = y_train[train_index2], y_train[val_index]
+	
+	
+	
+	X_train_array.append(X_train2)
+	y_train_array.append(y_train2)
+	
+	X_val_array.append(X_val)
+	y_val_array.append(y_val)
+	
+	
+
+
+""" LINEAR """
+
+
+"""for c in Cs:
+	
+	clf = svm.SVC(C=c, kernel='linear')
+	clf.fit(X_train, y_train)
+	
+	"Z = clf.predict(xx)"
+	for xx in X_train_array:
+		
+		"print str(xx.shape)"
+	score = clf.score(xx, yy)
+	
+	print str(c) + ' ' + str(score)"""
+	
+
+
+
+pyplot.ion()
+
+
+fig = pyplot.figure()
+ax = fig.gca(projection='3d')
+ax = fig.add_subplot(111, projection='3d')
+
+"todo"
+"ax.scatter(X_f1[:,0], X_f1[:,1], y_f1)"
+"train"
+"ax.scatter(X_train[:,0], X_train[:,1], y_train)"
+"test"
+"ax.scatter(X_test[:,0], X_test[:,1], y_test)"
+
+
+pyplot.xlabel('A', fontsize=16)
+pyplot.ylabel('B', fontsize=16)
+pyplot.show()
+
+pyplot.pause(100)
+
+
+		

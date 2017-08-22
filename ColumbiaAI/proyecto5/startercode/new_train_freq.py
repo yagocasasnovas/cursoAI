@@ -1,0 +1,191 @@
+import pandas
+import os
+import string
+import re
+import csv
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_extraction.text import TfidfTransformer
+from sklearn.linear_model import SGDClassifier
+from sklearn.model_selection import StratifiedShuffleSplit
+from sklearn.model_selection import cross_val_score
+import numpy as np
+
+
+
+TAG_RE = re.compile(r'<[^>]+>')
+
+def get_unique(file):
+	unique = set()
+	with open(file, 'rU') as f:
+		reader = csv.reader(f, delimiter=',', quotechar='"')
+		for row in reader:
+			for word in row[1].split():
+				unique.add(word)
+				
+	return unique
+
+
+def stopstop(mess):
+	nopunc = [char for char in mess]
+	nopunc = ''.join(nopunc)
+
+	return [word for word in nopunc.split() if word not in stopwords]
+
+
+def remove_tags(text):
+	return TAG_RE.sub('', text)
+
+def clean_file(file,file1,a):
+
+
+	new_file = open(file1,'w')
+	with open(file, 'rU') as f:
+		reader = csv.reader(f, delimiter=',', quotechar='"')
+		for row in reader:
+			#print row[1]
+
+
+			row[1] = remove_tags(row[1])
+			row[1] = row[1].translate(string.maketrans("",""), string.punctuation)
+			
+			row[1] = row[1].lower()
+			row[1] = re.sub(r'[^a-z\'\s]+', '', row[1])
+			row[1] = re.sub(' +',' ',row[1])
+			
+			
+			if a == 1:
+				new_file.write(str(row[0])+',"'+row[1]+'","'+row[2]+'"\n')
+			else:
+				if row[0] != '':
+					new_file.write(str(row[0])+',"'+row[1]+'"\n')
+			
+			
+
+			
+
+
+
+def create_file():
+	file = open("imdb_tr_x.csv","w")
+
+	i = 0
+	path = '../train/pos'
+	for filename in os.listdir(path):
+		fp=open(path+'/'+filename,'r')
+		frase = fp.read()
+		frase = frase.replace('"','')
+
+		file.write(str(i)+',"'+frase+'",1\n')
+		i = i + 1
+		fp.close()
+ 
+	path = '../train/neg'
+	for filename in os.listdir(path):
+		fp=open(path+'/'+filename,'r')
+		frase = fp.read()
+		frase = frase.replace('"','')
+		file.write(str(i)+',"'+frase+'",0\n')
+		i = i + 1
+		fp.close()
+ 
+
+	file.close()
+
+
+fp_stop = open("stopwords.en.txt","r")
+
+content = fp_stop.readlines()
+stopwords = []
+for c in content:
+	c = ''.join(c.splitlines())
+	stopwords.append(c)
+	
+fp_stop.close()
+
+
+
+#create_file()
+
+#raw_input('create')
+
+#clean_file('imdb_tr_x.csv','imdb_tr.csv',1)
+
+#raw_input('clean tr')
+
+#clean_file('imdb_te.csv','imdb_te_z.csv',2)
+
+unique_words = get_unique('imdb_tr.csv')
+
+print ('pandas')
+
+messages_tr = pandas.read_csv('imdb_tr.csv',sep=',',names=['message','label'])
+
+messages_te = pandas.read_csv('imdb_te_z.csv',sep=',',names=['message'])
+
+print ('vector')
+
+bow1 = CountVectorizer(analyzer=stopstop,vocabulary=unique_words)
+bow2 = CountVectorizer(analyzer=stopstop,vocabulary=unique_words,ngram_range=(2,2))
+
+
+print ('transform')
+
+hh_tr = bow1.fit_transform(messages_tr['message'])
+hh_tr2 = bow2.fit_transform(messages_tr['message'])
+
+tfidf1 = TfidfTransformer().fit_transform(hh_tr)
+
+
+
+#hh_te = bow1.fit(messages_te['message'])
+
+
+
+alpha = 0.000088
+
+
+label = messages_tr['label']
+
+
+print 'classifier'
+
+clf = SGDClassifier(alpha=alpha,loss="hinge", penalty="l1")
+clf.fit(hh_tr, label)
+
+clf2 = SGDClassifier(alpha=alpha,loss="hinge", penalty="l1")
+clf2.fit(hh_tr2, label)
+
+clf3 = SGDClassifier(alpha=alpha,loss="hinge", penalty="l1")
+clf3.fit(tfidf1, label)
+
+
+
+for index, row in messages_te.iterrows():
+	
+	bb = bow1.transform([row['message']])
+	bb2 = bow2.transform([row['message']])
+	
+	
+	out = clf.predict(bb)
+	out_n = str(out[0])
+	out2 = clf2.predict(bb2)
+	out_n2 = str(out2[0])
+	out3 = clf3.predict(bb3)
+	out_n3 = str(out3[0])
+	
+	print out_n
+	print out_n2
+	print out_n3
+	
+	raw_input()
+	
+
+
+
+
+
+
+
+
+
+

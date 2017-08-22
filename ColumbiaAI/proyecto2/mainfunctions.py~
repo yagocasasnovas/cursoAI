@@ -1,0 +1,201 @@
+
+
+
+from heuristicfunctions import heuristic
+from auxfunctions import GoalState, expandMax1, expandMinMin, pretty_print, expandMax, expandMin, expandMin2, returnvalidmovement
+import time
+
+
+
+
+deltatime = 0.5
+
+
+
+
+def abmaximize(node,alpha,beta, depth, t):
+	
+	
+#	print
+#	print "---- MAXIMIZER-----Level: " + str(depth) + " alpha: " + str(alpha) + " beta: " + str(beta)
+#	pretty_print(node)
+	
+
+	global deltatime
+
+	
+	if time.clock() - t > deltatime:
+		
+
+		
+		return ((( None ,heuristic(node)),None),1)
+
+
+	if len(expandMax(node)) == 0:
+		depth = 0
+	
+	if depth == 0:
+		
+#		print "MAXheuristic: " + str(heuristic(node))
+#		raw_input("Press Enter to continue MAX leave...")
+		
+
+		
+		return ((( None ,heuristic(node)),None),0)
+		
+	maxUtility = -999999
+	maxChild = None
+	maxMove = -1
+	
+
+	
+
+	m = 0
+	
+	for child1 in expandMax(node):
+		
+		child = child1[0]
+		
+#		print "maxloop: " + str(m)
+#		raw_input("Press Enter to continue MAXLOOP...")
+#		print "Direction: " + str(child1[1])
+#		pretty_print(child)
+		
+		((_,utility),kk) = abminimize(child,alpha,beta, depth - 1, t)
+		
+
+		
+#		print "utilityMAX: " + str(utility)
+		
+		if utility > maxUtility:
+			(maxChild, maxUtility) = (child, utility)
+			maxMove = child1[1]
+			
+		if maxUtility >= beta:
+			
+#			print "-----------pruning beta: " + str(maxUtility) + " " + str(beta)
+			
+
+			break
+			
+		if maxUtility > alpha:
+			alpha = maxUtility
+			
+		m = m + 1
+	
+#	pretty_print(node)
+#	print "depth: " + str(depth)
+	
+#	pretty_print(maxChild)
+
+#	print "MAX utility: " + str(maxUtility) + " alpha: " + str(alpha) + " beta: " + str(beta)
+#	pretty_print(node)
+#	raw_input("Press Enter to continue MAX...")
+		if kk == 1:
+			break
+			
+	return (((maxChild,maxUtility),maxMove),kk)
+
+
+
+
+
+def abminimize(node, alpha, beta, depth, t):
+
+#	print "---- MINIMIZER-----Level: " + str(depth) + " alpha: " + str(alpha) + " beta: " + str(beta)
+#	pretty_print(node)
+
+
+	global deltatime
+	
+	
+	if time.clock() - t > deltatime:
+		
+		
+		return (( None ,heuristic(node)),1)
+#		print "fotutmin"
+#		raw_input("fucked")
+		
+	if depth == 0:
+		
+#		print "minheuristic: " + str(heuristic(node))
+		
+#		raw_input("Press Enter to continue MIN leave...")
+		
+		
+		return (( None ,heuristic(node)),0)
+	
+	minUtility = 999999
+	minChild = None
+	minMove = -2
+	
+	n = 0
+	
+	for child in expandMin(node):
+		
+#		print "minloop: " + str(n)
+#		raw_input("Press Enter to continue MINLOOP...")
+##		pretty_print(child)
+		
+		(((_,utility),_),kk) = abmaximize(child,alpha,beta, depth - 1, t)
+		
+		
+		
+#		print "utilityMin: " + str(utility)
+		
+		if utility < minUtility:
+			(minChild,minUtility) = (child,utility)
+		
+		
+		
+		if minUtility <= alpha:
+			
+#			print "-----------pruning alpha: " + str(minUtility) + " " + str(alpha)
+			
+
+			break
+		
+		if minUtility < beta:
+			beta = minUtility
+		
+		n = n + 1
+		
+#		print "Min utility: " + str(minUtility) + " alpha: " + str(alpha) + " beta: " + str(beta)
+##		pretty_print(node)
+#		raw_input("Press Enter to continue MIN...")
+		
+		if kk == 1:
+			break
+		
+	return ((minChild, minUtility),kk)
+
+
+
+
+def decision(node,t):
+	
+	move_def = -1
+	utility_t = -1
+	
+	for dd in range(0,5):
+		
+		(((_,utility), move1 ),r) = abmaximize(node,-999999,999999, dd + 3, t)
+		
+		if utility > utility_t:
+			utility_t = utility
+			move_def = move1
+		if r == 1:
+		
+			break
+		
+
+		
+	if move_def == -1:
+		return returnvalidmovement(node)
+	else:
+		return move_def
+	
+	
+	
+	
+	

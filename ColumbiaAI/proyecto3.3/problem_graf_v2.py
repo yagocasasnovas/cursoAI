@@ -1,0 +1,248 @@
+import numpy as np
+import csv
+
+from numpy import array
+from matplotlib import pyplot
+
+import pylab
+from mpl_toolkits.mplot3d import Axes3D
+from sklearn.model_selection import StratifiedShuffleSplit
+from sklearn.model_selection import StratifiedKFold
+from sklearn import svm
+from sklearn.model_selection import cross_val_score
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn import linear_model as lm
+from sklearn import tree
+
+
+
+Cs = [0.1, 0.5, 1.0, 5.0, 10.0, 50.0, 100.0]
+gammas = [0.1, 0.5, 1.0, 3.0, 6.0, 10.0]
+
+
+csv1 = np.genfromtxt ('input3.csv', delimiter=",")
+A = csv1[:,0]
+B = csv1[:,1]
+label = csv1[:,2]
+
+A = np.delete(A, (0), axis=0)
+B = np.delete(B, (0), axis=0)
+
+x_matrix = np.column_stack((A,B))
+
+
+label = np.delete(label, (0), axis=0)
+
+number_samples = len(A)
+
+number_samples_l = len(label)
+
+
+
+sss = StratifiedShuffleSplit(n_splits=10, test_size=0.4, random_state=0)
+result = sss.split(x_matrix,label)
+
+for train_index, test_index in result:
+	"""print("TRAIN:", train_index, "TEST:", test_index)."""
+	X_train, X_test = x_matrix[train_index], x_matrix[test_index]
+	y_train, y_test = label[train_index], label[test_index]
+
+max_score_linear = 0
+
+max_test_score = 0
+
+
+"""linear"""
+
+for c in Cs:
+	
+	clf = svm.SVC(C=c, kernel='linear')
+	clf.fit(X_train,y_train)
+	if max_score_linear < max(cross_val_score(clf, X_train, y_train,cv=5)):
+		max_score_linear = max(cross_val_score(clf, X_train, y_train,cv=5))
+		
+		max_test_score = clf.score(X_test,y_test)
+	
+
+result_linear = 'svm_linear,' + str(max_score_linear) + ',' + str(max_test_score)
+
+print result_linear
+
+
+"""rbf"""
+
+
+max_score_rbf = 0
+
+max_test_score = 0
+
+for c in Cs:
+	
+	for g in gammas:
+		
+		clf = svm.SVC(C=c, gamma=g, kernel='rbf')
+		clf.fit(X_train,y_train)
+		
+		if max_score_rbf < max(cross_val_score(clf, X_train, y_train,cv=5)):
+			max_score_rbf = max(cross_val_score(clf, X_train, y_train,cv=5))
+		
+			max_test_score = clf.score(X_test,y_test)
+	
+
+result_rbf = 'svm_rbf,' + str(max_score_rbf) + ',' + str(max_test_score)
+
+print result_rbf
+
+
+
+
+"""poly"""
+
+
+max_score_poly = 0
+
+max_test_score = 0
+
+Cs = [0.1, 1.0, 3.0]
+gammas = [0.1, 0.5]
+degree = [4.0, 5.0, 6.0]
+
+for c in Cs:
+	
+	for g in gammas:
+		
+		for d in degree:
+			
+			"""clf = svm.SVC(C=c, gamma=g, degree=d, kernel='poly')
+			clf.fit(X_train,y_train)
+		
+			if max_score_poly < max(cross_val_score(clf, X_train, y_train,cv=5)):
+				max_score_poly = max(cross_val_score(clf, X_train, y_train,cv=5))
+		
+				max_test_score = clf.score(X_test,y_test)"""
+	
+
+result_poly = 'svm_polynomial,' + str(max_score_poly) + ',' + str(max_test_score)
+
+print result_poly
+
+
+
+"""Logistic"""
+
+max_score_logistic = 0
+
+max_test_score = 0
+
+Cs = [0.1, 0.5, 1.0, 5.0, 10.0, 50.0, 100.0]
+
+
+for c in Cs:
+	
+	clf = lm.LogisticRegression(C=c)
+	clf.fit(X_train,y_train)
+	if max_score_logistic < max(cross_val_score(clf, X_train, y_train,cv=5)):
+		max_score_logistic = max(cross_val_score(clf, X_train, y_train,cv=5))
+		
+		max_test_score = clf.score(X_test,y_test)
+	
+
+result_logistic = 'logistic,' + str(max_score_logistic) + ',' + str(max_test_score)
+
+print result_logistic
+
+
+
+
+"""kneighbours"""
+
+max_score_kneighbours = 0
+
+max_test_score = 0
+
+
+neighbours = range(1,51)
+leaf_size = range(5,61,5)
+
+
+for n in neighbours:
+	
+	for l in leaf_size:
+		
+		clf = KNeighborsClassifier(n_neighbors=n,leaf_size=l)
+		clf.fit(X_train,y_train)
+		
+		if max_score_kneighbours < max(cross_val_score(clf, X_train, y_train,cv=5)):
+			max_score_kneighbours = max(cross_val_score(clf, X_train, y_train,cv=5))
+		
+			max_test_score = clf.score(X_test,y_test)
+	
+
+result_kneighbours = 'knn,' + str(max_score_kneighbours) + ',' + str(max_test_score)
+
+print result_kneighbours
+
+
+
+
+"""decisiontrees"""
+
+max_score_decisiontrees = 0
+
+max_test_score = 0
+
+
+max_depth = range(1,51)
+min_sample_split = range(2,11)
+
+
+for md in max_depth:
+	
+	for mss in min_sample_split:
+		
+		clf = tree.DecisionTreeClassifier(max_depth=md,min_samples_split=mss)
+		clf.fit(X_train,y_train)
+		
+		if max_score_decisiontrees < max(cross_val_score(clf, X_train, y_train,cv=5)):
+			max_score_decisiontrees = max(cross_val_score(clf, X_train, y_train,cv=5))
+		
+			max_test_score = clf.score(X_test,y_test)
+	
+
+result_decisiontrees = 'decision_tree,' + str(max_score_decisiontrees) + ',' + str(max_test_score)
+
+print result_decisiontrees
+
+
+
+
+
+"""forest"""
+
+max_score_forest = 0
+
+max_test_score = 0
+
+
+max_depth = range(1,51)
+min_sample_split = range(2,11)
+
+
+for md in max_depth:
+	
+	for mss in min_sample_split:
+		
+		clf = tree.DecisionTreeClassifier(max_depth=md,min_samples_split=mss)
+		clf.fit(X_train,y_train)
+		
+		if max_score_forest < max(cross_val_score(clf, X_train, y_train,cv=5)):
+			max_score_forest = max(cross_val_score(clf, X_train, y_train,cv=5))
+		
+			max_test_score = clf.score(X_test,y_test)
+	
+
+result_forest = 'random_forest,' + str(max_score_forest) + ',' + str(max_test_score)
+
+print result_forest
+
+

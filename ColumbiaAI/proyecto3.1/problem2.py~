@@ -1,0 +1,80 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import time
+
+
+csv = np.genfromtxt ('input1.csv', delimiter=",")
+first = csv[:,0]
+second = csv[:,1]
+third = csv[:,2]
+third_color = []
+
+fourth = zip(first, second, third)
+
+
+for jj in third:
+	
+	if jj == 1:
+		third_color.append('g')
+	else:
+		third_color.append('r')
+
+"number of iterations"
+k = 30000
+
+weights = [0,0,0]
+
+def sign_function(w,x0,x1):
+	
+	if w[2] + w[0]*x0 + w[1]*x1 > 0:
+		return 1
+	else:
+		return -1
+
+
+
+
+
+
+plt.ion()
+fig, ax = plt.subplots()
+ax.set_ylim([0,20])
+x = range(0,16)
+
+
+def draw_line(a,b):
+	y = [xt*a+b for xt in x]
+	ax.plot(x,y)
+	
+	
+
+
+
+for a in range(k):
+
+	
+	for xx in fourth:
+		
+		output = sign_function(weights,xx[0],xx[1])
+		error = xx[2] - output
+		
+		if xx[2]*output < 0:
+			
+			weights[2] = weights[2] + error
+			weights[0] = weights[0] + error * xx[0]
+			weights[1] = weights[1] + error * xx[1]
+
+
+
+		"""print str(error) + ' ' + str(weights) + ' ' + str(a) + ' ' + str(xx)"""
+		"""raw_input('Enter')"""
+		
+		ax.cla()
+		draw_line((-1)*weights[2]/weights[1],(-1)*weights[0]/weights[1])
+		plt.scatter(first, second, c=third_color)
+		plt.pause(0.5)
+		plt.draw()
+	print a
+
+
+
