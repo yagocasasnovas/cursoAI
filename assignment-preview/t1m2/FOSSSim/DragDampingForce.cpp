@@ -8,4 +8,22 @@ void DragDampingForce::addGradEToTotal( const VectorXs& x, const VectorXs& v, co
   assert( x.size()%2 == 0 );
   
   // Your code goes here!
+  
+  //m_b
+  
+  int num_part = x.size()/2;
+  
+  for(int i = 0;i<num_part;i++)
+  
+  {
+  
+  gradE[2*i] += m_b*v[2*i];
+  gradE[2*i+1] += m_b*v[2*i+1];
+  
+  
+  
+  
+  }
+  
+  
 }

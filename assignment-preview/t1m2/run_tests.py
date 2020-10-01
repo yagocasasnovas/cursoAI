@@ -7,7 +7,7 @@ def find_tests(theme):
     """Find all of the test files in the assets directory."""
     test_files = []
 
-    for dirpath, dirnames, filenames in os.walk("/home/codio/workspace/assets/{}/" .format(theme)):
+    for dirpath, dirnames, filenames in os.walk("/home/yago/cursoAI/assignment-preview/t1m2/assets/{}/" .format(theme)):
         for filename in filenames:
             if filename.endswith('.xml'):
                 test_files.append(os.path.join(dirpath, filename))
@@ -16,7 +16,7 @@ def find_tests(theme):
 
 
 def main():
-    """Collect the tests for the current milestone and run them against the oracle.
+    """Collect the tests for the current milestone and run them against the oracle.   yago/cursoAI/assignment-preview/t1m2/build
 
     If there are extra credit tests, they can be run independently of the other tests
     by using the --extra or -e flags. To run specific tests, one can use the --specific
@@ -42,11 +42,11 @@ def main():
 
     for test in sorted(tests):
         print('Running test {}: ' .format(test), end='')
-        subprocess.check_output(['/home/codio/workspace/build/FOSSSim/FOSSSim', '-s', '{}' .format(test),
-                                 '-d', '0', '-o', '/home/codio/workspace/test_output.bin'])
+        subprocess.check_output(['/home/yago/cursoAI/assignment-preview/t1m2/build/FOSSSim/FOSSSim', '-s', '{}' .format(test),
+                                 '-d', '0', '-o', '/home/yago/cursoAI/assignment-preview/t1m2/test_output.bin'])
 
-        oracle = subprocess.check_output(['/home/codio/workspace/oracle/FOSSSimOracle{}' .format(theme.upper()),
-                                          '-s', '{}' .format(test), '-d', '0', '-i', '/home/codio/workspace/test_output.bin'],
+        oracle = subprocess.check_output(['/home/yago/cursoAI/assignment-preview/t1m2/oracle/FOSSSimOracle{}' .format(theme.upper()),
+                                          '-s', '{}' .format(test), '-d', '0', '-i', '/home/yago/cursoAI/assignment-preview/t1m2/test_output.bin'],
                                           universal_newlines=True)
 
         if 'Overall success: Passed.' in oracle:

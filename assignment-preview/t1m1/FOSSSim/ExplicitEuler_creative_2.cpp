@@ -79,7 +79,7 @@ bool ExplicitEuler::stepScene( TwoDScene& scene, scalar dt )
   v[k*4+2] = (-1)*power*sin(p1); 
   v[k*4+3] = power*cos(p1);
   
-      cout << m[k*4] << " -1-- " << m[k*4+1] <<endl;     
+      //cout << m[k*4] << " -1-- " << m[k*4+1] <<endl;     
 
 
    
@@ -96,7 +96,7 @@ bool ExplicitEuler::stepScene( TwoDScene& scene, scalar dt )
   v[k*4+2] = power*sin(p2); 
   v[k*4+3] = power*cos(p2);
      
-     cout << m[k*4] << " -2-- " << m[k*4+1] <<endl;
+     //cout << m[k*4] << " -2-- " << m[k*4+1] <<endl;
      
      
      }

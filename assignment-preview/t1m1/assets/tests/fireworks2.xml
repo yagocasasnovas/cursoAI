@@ -5,88 +5,86 @@
   <integrator type="explicit-euler" dt="0.01"/>
   <maxsimfreq max="500.0"/>
   <simplegravity fx="0.0" fy="-9.81"/>
-  
-
-<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.02"/>
-<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.02"/>
-<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.02"/>
-<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.02"/>
-<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.02"/>
-<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.02"/>
-<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.02"/>
-<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.02"/>
-<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.02"/>
-<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.02"/>
-<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.02"/>
-<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.02"/>
-<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.02"/>
-<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.02"/>
-<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.02"/>
-<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.02"/>
-<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.02"/>
-<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.02"/>
-<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.02"/>
-<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.02"/>
-<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.02"/>
-<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.02"/>
-<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.02"/>
-<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.02"/>
-<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.02"/>
-<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.02"/>
-<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.02"/>
-<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.02"/>
-<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.02"/>
-<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.02"/>
-<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.02"/>
-<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.02"/>
-<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.02"/>
-<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.02"/>
-<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.02"/>
-<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.02"/>
-<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.02"/>
-<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.02"/>
-<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.02"/>
-<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.02"/>
+<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="5.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
 <particle m="1.0" px="10.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
-<particle m="2.0" px="0.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
-<particle m="3.0" px="10.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
-<particle m="4.0" px="0.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
-<particle m="5.0" px="10.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
-<particle m="6.0" px="0.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
-<particle m="7.0" px="10.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
-<particle m="8.0" px="0.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
-<particle m="9.0" px="10.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
-<particle m="10.0" px="0.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
-<particle m="11.0" px="10.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
-<particle m="12.0" px="0.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
-<particle m="13.0" px="10.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
-<particle m="14.0" px="0.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
-<particle m="15.0" px="10.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
-<particle m="16.0" px="0.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
-<particle m="17.0" px="10.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
-<particle m="18.0" px="0.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
-<particle m="19.0" px="10.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
-<particle m="20.0" px="0.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="0.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
 <particle m="1.0" px="10.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
-<particle m="2.0" px="0.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
-<particle m="3.0" px="10.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
-<particle m="4.0" px="0.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
-<particle m="5.0" px="10.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
-<particle m="6.0" px="0.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
-<particle m="7.0" px="10.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
-<particle m="8.0" px="0.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
-<particle m="9.0" px="10.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
-<particle m="10.0" px="0.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
-<particle m="11.0" px="10.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
-<particle m="12.0" px="0.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
-<particle m="13.0" px="10.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
-<particle m="14.0" px="0.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
-<particle m="15.0" px="10.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
-<particle m="16.0" px="0.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
-<particle m="17.0" px="10.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
-<particle m="18.0" px="0.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
-<particle m="19.0" px="10.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
-<particle m="20.0" px="0.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="0.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="10.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="0.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="10.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="0.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="10.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="0.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="10.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="0.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="10.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="0.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="10.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="0.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="10.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="0.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="10.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="0.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="10.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="0.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="10.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="0.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="10.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="0.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="10.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="0.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="10.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="0.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="10.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="0.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="10.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="0.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="10.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="0.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="10.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="0.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="10.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
+<particle m="1.0" px="0.0" py="0.0" vx="0.0" vy="0.0" fixed="0" radius="0.03"/>
 
 
 
@@ -171,88 +169,87 @@
 <particlecolor i="78" r="1.0" g="0" b="0.0"/>
 <particlecolor i="79" r="1.0" g="0" b="0.0"/>
 
+<particlepath i="0" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="1" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="2" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="3" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="4" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="5" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="6" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="7" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="8" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="9" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="10" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="11" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="12" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="13" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="14" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="15" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="16" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="17" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="18" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="19" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="20" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="21" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="22" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="23" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="24" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="25" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="26" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="27" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="28" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="29" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="30" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="31" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="32" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="33" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="34" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="35" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="36" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="37" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="38" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="39" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="40" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="41" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="42" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="43" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="44" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="45" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="46" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="47" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="48" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="49" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="50" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="51" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="52" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="53" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="54" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="55" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="56" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="57" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="58" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="59" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="60" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="61" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="62" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="63" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="64" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="65" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="66" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="67" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="68" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="69" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="70" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="71" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="72" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="73" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="74" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="75" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="76" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="77" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="78" duration="30.0" r="1.0" g="0.9" b="0.8"/>
+<particlepath i="79" duration="30.0" r="1.0" g="0.9" b="0.8"/>
 
-
-<particlepath i="0" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="1" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="2" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="3" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="4" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="5" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="6" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="7" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="8" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="9" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="10" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="11" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="12" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="13" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="14" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="15" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="16" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="17" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="18" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="19" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="20" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="21" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="22" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="23" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="24" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="25" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="26" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="27" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="28" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="29" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="30" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="31" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="32" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="33" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="34" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="35" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="36" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="37" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="38" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="39" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="40" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="41" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="42" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="43" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="44" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="45" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="46" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="47" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="48" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="49" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="50" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="51" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="52" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="53" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="54" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="55" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="56" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="57" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="58" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="59" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="60" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="61" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="62" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="63" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="64" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="65" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="66" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="67" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="68" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="69" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="70" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="71" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="72" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="73" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="74" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="75" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="76" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="77" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="78" duration="10.0" r="1.0" g="0.9" b="0.8"/>
-<particlepath i="79" duration="10.0" r="1.0" g="0.9" b="0.8"/>
 
 
 

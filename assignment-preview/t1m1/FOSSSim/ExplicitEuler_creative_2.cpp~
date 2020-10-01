@@ -23,6 +23,8 @@ bool ExplicitEuler::stepScene( TwoDScene& scene, scalar dt )
 
   scene.time_stamp += dt;
 
+  const VectorXs& m = scene.getM();  
+  
   VectorXs& x = scene.getX();
 
   
@@ -33,38 +35,82 @@ bool ExplicitEuler::stepScene( TwoDScene& scene, scalar dt )
 
   //Añado velocidad dinamicamente
   
-  double power = 5.0;
-  double delta_time_1 = 2.0;  //espera a que empiecen los fuegos
+  double power = 15.0;
+  double delta_time_1 = 1.0;  //espera a que empiecen los fuegos
+  
+  
   
   //velocidad inicial
   
-  for(int j=0;j<91;j++){  
+
+  	double pp = scene.time_stamp*100.0;
+
+  int a = (int)pp;
+  int b = a%50;
+  int cc = a/50-1;
+  //double z = a/5;
+  //int b = (int)a % 5;
   
-  double dtt = double(j);
+  //cout << scene.time_stamp << "----------" << pp << " -- " << a << " --- " << b << "--------------" << endl;
+
+  if(b == 0 && cc < 80){  
   
-     
+  ////cout << scene.time_stamp << " -- " << a << " -- " << b << endl;
+
+  int k;
   
-if(scene.time_stamp == dtt+delta_time_1){
-  	
+  k = a / 50 - 1;
+
+
+  cout << k << endl;
   
+  if(k<19){    // primeros fuegos
   
-  
-  double p;
+  double ang1;
+
    
+  ang1 = (double)k;
 
-  p = (double)j + 90;
 
-  double p1 = p*3.1416/180.0;
-  double p2 = (-1)*p*3.1416/180.0;
- 
-    v[k*2] = power*sin(p); 
-    v[k*2+1] = power*cos(p);    
- 
-  }
+  double p1 = ang1*3.1416/180.0;
   
-}  
+  v[k*4] = power*sin(p1); 
+  v[k*4+1] = power*cos(p1);
+  v[k*4+2] = (-1)*power*sin(p1); 
+  v[k*4+3] = power*cos(p1);
   
-  const VectorXs& m = scene.getM();
+      cout << m[k*4] << " -1-- " << m[k*4+1] <<endl;     
+
+
+   
+     }  
+     
+     if(k>19){
+     	
+     	  double ang12 = 10.0;
+     	
+     	  double p2 = ang12*3.1416/180.0;
+     
+  v[k*4] = (-1)*power*sin(p2); 
+  v[k*4+1] = power*cos(p2);
+  v[k*4+2] = power*sin(p2); 
+  v[k*4+3] = power*cos(p2);
+     
+     cout << m[k*4] << " -2-- " << m[k*4+1] <<endl;
+     
+     
+     }
+     
+     
+     
+     
+     
+ 
+ }
+  
+
+  
+  
   
 
   //cout << x.size();
@@ -86,19 +132,13 @@ if(scene.time_stamp == dtt+delta_time_1){
   
   //cout << "----------------------" << endl;
   
-  //cout << F.array() << endl;
   
-  
-    //cout << "1**********************" << endl;
 
 
-  
-    //cout << typeid(F.array()).name() << endl;
-
-  //calculamos Explicit Euler con velocidad
   
   
   //quitamos la fuerza a los que son fijos
+  
   int i;
   
 
@@ -123,7 +163,7 @@ if(scene.time_stamp == dtt+delta_time_1){
   {
     int posY = i*2+1;
     int posX = i*2;
-    int finalposY = -2.0;
+    int finalposY = 0.001;
     
     //cout << v[1] << endl;
     

@@ -4,7 +4,7 @@ using namespace std;
 #include "ExplicitEuler.h"
 #include <typeinfo>
 
-Eigen::IOFormat CleanFmt(4, 0, ", ", "\n", "[", "]");
+
 
 
 bool ExplicitEuler::stepScene( TwoDScene& scene, scalar dt )
@@ -22,7 +22,7 @@ bool ExplicitEuler::stepScene( TwoDScene& scene, scalar dt )
     // if( scene.isFixed(i) )
 
   
-  scene.time_stamp += dt;
+  //scene.time_stamp += dt;
   
   //cout << scene.pepe << endl;
 
@@ -34,14 +34,8 @@ bool ExplicitEuler::stepScene( TwoDScene& scene, scalar dt )
   
   const VectorXs& m = scene.getM();
   
-
-  //cout << x.size();
-
-  
   VectorXs F(x.size());
   
-  // Vector fuerza: f0, f0, f1, f1, ...
-    
   F.setZero();
   
   
@@ -50,20 +44,9 @@ bool ExplicitEuler::stepScene( TwoDScene& scene, scalar dt )
   F *= -1.0;  //multiplica por menos uno  F *= -1.0  --> F = F * (-1.0)
   
   
-  //cout << F.format(CleanFmt) << endl;
-  
-  //cout << "----------------------" << endl;
-  
-  //cout << F.array() << endl;
-  
-  
-    //cout << "1**********************" << endl;
+ 
 
 
-  
-    //cout << typeid(F.array()).name() << endl;
-
-  //calculamos Explicit Euler con velocidad
   
   
   //quitamos la fuerza a los que son fijos
@@ -76,37 +59,35 @@ bool ExplicitEuler::stepScene( TwoDScene& scene, scalar dt )
 	if(scene.isFixed(i))
 		{
 			int pos = i*2;
-			      //cout << "12**********************" << endl;
-			            //cout << F.segment(pos,2) << endl;
+			     
 		F.segment(pos,2).setZero();
 		}
   
   
   }
 
-    // quito la fuerza para los que han llegado al suelo. (si están en posicion cero y con velocidad negativa)
-  
 
+  
+  //calculamos Explicit Euler con velocidad
 
 
   x = x + dt*v; 
   
 
   
-  
-
-  
 
   // Para la segunda ecuación hay que dividir la Fuerza por la masa porque no tenemos el momento sino la velocidad.
+  
+   cout << "1----------- F0: " << F[0] << "  F1: " << F[1] << "   F2: " << F[2] << "   F3: " << F[3] << endl;
   
   
   F.array() /= m.array();  // F.array()  = F.array / m.array()
   
-      
+         //cout << "2 ------- F0: " << F[0] << "   F1: " << F[1] << "   F2: " << F[2] << "   F3: " << F[3] << endl;
     
   v = v + dt*F;
   
-  
+         //cout << "2 ------- V0: " << v[0] << "   V1: " << v[1] << "   V2: " << v[2] << "   V3: " << v[3] << endl;
 
   
  
