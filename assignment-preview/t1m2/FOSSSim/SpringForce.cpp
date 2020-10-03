@@ -29,8 +29,8 @@ void SpringForce::addGradEToTotal( const VectorXs& x, const VectorXs& v, const V
    ///m_endpoints es del tipo pair
    
    
-   cout << x[2] << " -- " << x[3] << " -- "<< x [4] << " -- " << x[5] << endl;
-  
+   //cout << x[2] << " -- " << x[3] << " -- "<< x [4] << " -- " << x[5] << endl;
+   cout << sqrt(  ( (x[6] - x[2])*(x[6] - x[2]) + (x[7] - x[3])*(x[7] - x[3])  )  ) << endl;
   
   //l es la distancia entre los dos vectores.
   //n es el vector normalizado.
