@@ -74,7 +74,7 @@ void SpringForce::addGradEToTotal( const VectorXs& x, const VectorXs& v, const V
   gradE[2*m_endpoints.first] += dU1x;
   gradE[2*m_endpoints.first+1] += dU1y;
   
-  cout << dU2y << " --- "  << eU2y << " --- " << dU1y << " -- " << eU1y << endl;
+  //cout << dU2y << " --- "  << eU2y << " --- " << dU1y << " -- " << eU1y << endl;
   
   gradE[2*m_endpoints.second] -= eU2x;
   gradE[2*m_endpoints.second+1] -= eU2y;

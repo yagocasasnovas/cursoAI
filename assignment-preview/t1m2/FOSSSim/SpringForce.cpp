@@ -29,7 +29,7 @@ void SpringForce::addGradEToTotal( const VectorXs& x, const VectorXs& v, const V
    ///m_endpoints es del tipo pair
    
    
-   //cout << m_l0 << endl;
+   cout << x[2] << " -- " << x[3] << " -- "<< x [4] << " -- " << x[5] << endl;
   
   
   //l es la distancia entre los dos vectores.
